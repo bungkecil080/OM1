@@ -108,13 +108,13 @@ jobs:
             }" \
             ${{ secrets.ONCALL_SLACK_WEBHOOK_URL }}
 
-      - name: Notify Slack on success #ONCALL_SLACK_WEBHOOK_URL: ${{https://app.slack.com/client/T0A6SG9DDN2/C0A6R51AKGV }}
-        if: success() && github.OM1 == 'schedule'
+      - name: Notify Slack on success
+        if: success() && github.event_name == 'schedule'
         run: |
           curl -X POST -H 'Content-type: application/json' \
             --data "{
               \"text\": \"✅ *All Integration Tests Passed*\n\
               *Total:* ${{ steps.summary.outputs.total }}\n\
-              🔗 <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ 20711241258 }}|View Workflow>\"
+              🔗 <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow>\"
             }" \
             ${{ secrets.ONCALL_SLACK_WEBHOOK_URL }}
