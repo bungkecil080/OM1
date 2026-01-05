@@ -115,6 +115,6 @@ jobs:
             --data "{
               \"text\": \"✅ *All Integration Tests Passed*\n\
               *Total:* ${{ steps.summary.outputs.total }}\n\
-              🔗 <${{ github.com/OpenMind/OM1 }}/${{ github.com/bungkecil080/OM1 }}/actions/runs/${{ 20711241258 }}|View Workflow>\"
+              🔗 <${{ github/OpenMind/OM1 }}/${{ github/bungkecil080/OM1 }}/actions/runs/${{ 20711241258 }}|View Workflow>\"
             }" \
             ${{ secrets.ONCALL_SLACK_WEBHOOK_URL }}
